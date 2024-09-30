@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Download Files";
+}
+
+<style>
+    .text-xl {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+
+    .font-bold {
+        font-weight: 700;
+    }
+
+    .border {
+        border-width: 1px;
+    }
+
+    .border-gray-300 {
+        border-color: rgb(209 213 219);
+    }
+
+    .rounded {
+        border-radius: 0.25rem;
+    }
+
+    .p-2 {
+        padding: 0.5rem;
+    }
+
+    .bg-blue-500 {
+        background-color: rgb(59 130 246);
+    }
+
+    .py-2 {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    .px-4 {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .bg-blue-700 {
+        background-color: rgb(29 78 216);
+    }
+
+    .text-white {
+        color: rgb(255 255 255);
+    }
+
+    .hover\:bg-blue-700:hover {
+        background-color: rgb(29 78 216);
+    }
+</style>
+
+
+<h2 class="text-xl font-bold">Available Files</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <select id="fileSelect" class="border border-gray-300 rounded p-2">
+        @foreach (var fileName in Model)
+        {
+            <option value="@fileName">@fileName</option>
+        }
+    </select>
+    <br />
+    <button onclick="downloadFile()" class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700">Download</button>
+}
+else
+{
+    <p>No files available for download.</p>
+}
+
+<script>
+    function downloadFile() {
+        var select = document.getElementById('fileSelect');
+        var fileName = select.options[select.selectedIndex].value;
+        window.location.href = "/Home/DownloadFile?fileName=" + encodeURIComponent(fileName);
+    }
+</script>

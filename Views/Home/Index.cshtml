@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        .flex {
+            display: flex;
+        }
+
+        .flex-col {
+            flex-direction: column;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .justify-center {
+            justify-content: center;
+        }
+
+        .h-screen {
+            height: 100vh;
+        }
+
+        .space-y-10 {
+            margin-top: 2.5rem;
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .bg-green-500 {
+            background-color: rgb(34 197 94);
+        }
+
+        .text-white {
+            color: rgb(255 255 255);
+        }
+
+        .py-2 {
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .rounded {
+            border-radius: 0.25rem;
+        }
+
+        .bg-green-700 {
+            background-color: rgb(21 128 61);
+        }
+
+        .hover\:bg-green-700:hover {
+            background-color: rgb(21 128 61);
+        }
+
+        .bg-blue-500 {
+            background-color: rgb(59 130 246);
+        }
+
+        .bg-blue-700 {
+            background-color: rgb(29 78 216);
+        }
+
+        .hover\:bg-blue-700:hover {
+            background-color: rgb(29 78 216);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex flex-col items-center justify-center h-screen space-y-10">
+        <h1 class="text-3xl font-bold">File Management</h1>
+
+        <div>
+            <button class="bg-green-500 text-white font-bold py-2 px-4 rounded hover:bg-green-700" onclick="window.location.href='@Url.Action("Upload", "Home")'">Upload</button>
+        </div>
+
+        <div>
+            <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-700" onclick="window.location.href='@Url.Action("Download", "Home")'">Download</button>
+        </div>
+    </div>
+</body>
+</html>
